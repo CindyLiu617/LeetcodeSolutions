@@ -7,20 +7,20 @@ import java.util.ArrayList;
  */
 public class Vertex {
     private int label;
-    private ArrayList<Vertex> next = null;
+    private ArrayList<Vertex> neighbors = null;
 
-    public Vertex(char lab) {
+    public Vertex(int lab) {
         label = lab;
     }
 
-    public Vertex(char lab, ArrayList<Vertex> nxt) {
+    public Vertex(int lab, ArrayList<Vertex> neighb) {
         label = lab;
-        next = nxt;
+        neighbors = neighb;
     }
 
     public void addAdj(Vertex ver) {
-        if (next == null) next = new ArrayList<Vertex>();
-        next.add(ver);
+        if (neighbors == null) neighbors = new ArrayList<Vertex>();
+        neighbors.add(ver);
     }
 
     public int getLabel() {
@@ -28,6 +28,6 @@ public class Vertex {
     }
 
     public ArrayList<Vertex> getAdj() {
-        return new ArrayList<Vertex>(next);
+        return neighbors == null? null : new ArrayList<Vertex>(neighbors);
     }
 }

@@ -1,4 +1,6 @@
+import solutions.FindCycleInDirectedGraph;
 import solutions.FindNumberOfIslands;
+import solutions.JumpGame;
 
 /**
  * Created by James on 3/24/16.
@@ -6,7 +8,7 @@ import solutions.FindNumberOfIslands;
 public class Test {
     static public void main(String[] args){
         long startTime = System.nanoTime();
-        FindNumberOfIslands.Test.randomTest();
+        FindCycleInDirectedGraph.Test.randomTest();
         System.out.println("Total Time: " + (System.nanoTime() - startTime) / 1000000 + "ms");
     }
 }

@@ -14,10 +14,11 @@ public class FindNumberOfIslands {
 
         int countOfIslands = 0;
         final int row = matrix.length, col = matrix[0].length;
+        boolean[][] visited = new boolean[row][col];
         for (int i = 0; i < row; ++i) {
             for (int j = 0; j < col; ++j) {
-                if (matrix[i][j] == 1) {
-                    findIslands(matrix, i, j);
+                if (!visited[i][j] && matrix[i][j] == 1) {
+                    findIslands(matrix,visited, i, j);
                     ++countOfIslands;
                 }
             }
@@ -25,13 +26,13 @@ public class FindNumberOfIslands {
         return countOfIslands;
     }
 
-    private void findIslands(int[][] matrix, int x, int y) {
-        matrix[x][y] = 0;
+    private void findIslands(int[][] matrix, boolean[][] visited, int x, int y) {
+        visited[x][y] = true;
         for (int[] move : _movements) {
             int xx = x + move[0];
             int yy = y + move[1];
-            if (xx >= 0 && xx < matrix.length && yy >= 0 && yy < matrix[0].length && matrix[xx][yy] == 1) {
-                findIslands(matrix, xx, yy);
+            if (xx >= 0 && xx < matrix.length && yy >= 0 && yy < matrix[0].length && matrix[xx][yy] == 1 && !visited[xx][yy]) {
+                findIslands(matrix, visited, xx, yy);
             }
         }
     }
@@ -44,8 +45,8 @@ public class FindNumberOfIslands {
         }
 
         static public void randomTest() {
-            int[][] matrix1 = {{1}};
-            test(matrix1, 2);
+            int[][] matrix1 = {{1, 1}};
+            test(matrix1, 1);
 
             int[][] matrix2 = {{0, 0, 0, 1}, {0, 1, 1, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}};
             test(matrix2, 3);
