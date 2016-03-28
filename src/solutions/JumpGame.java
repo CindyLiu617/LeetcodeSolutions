@@ -21,11 +21,29 @@ public class JumpGame {
         return canReach[A.length - 1];
     }
 
+    //greedy
+    public boolean canJumpGreedy(int[] nums){
+        if(nums == null || nums.length == 0)
+            return false;
+        int rangeStart = 0, rangeEnd = 0;
+        while (rangeEnd < nums.length && rangeStart <= rangeEnd){
+            int farthest = rangeEnd;
+            for(int i = rangeStart; i <= rangeEnd; ++i){
+                if(nums[i] + i > farthest){
+                    farthest = nums[i] + i;
+                }
+            }
+            rangeStart = rangeEnd + 1;
+            rangeEnd = farthest;
+        }
+        return rangeEnd >=  nums.length - 1;
+    }
+
     static public class Test {
         static private JumpGame _solution = new JumpGame();
 
         static public void test(int[] A, boolean ans) {
-            Assert.check(ans == _solution.canJump(A));
+            Assert.check(ans == _solution.canJumpGreedy(A));
         }
 
         static public void randomTest() {
