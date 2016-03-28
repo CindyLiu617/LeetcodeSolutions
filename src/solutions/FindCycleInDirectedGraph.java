@@ -1,7 +1,5 @@
 package solutions;
 
-import com.sun.tools.javac.code.Attribute;
-import com.sun.tools.javac.code.Type;
 import com.sun.tools.javac.util.Assert;
 import solutions.utils.Vertex;
 
@@ -44,7 +42,6 @@ public class FindCycleInDirectedGraph {
         visitStatus.put(current, 2);
         return false;
     }
-
 
     static public boolean hasCycle2(boolean[][] graph) {
         if (graph == null || graph.length == 0 || graph[0].length == 0)

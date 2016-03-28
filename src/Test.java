@@ -1,5 +1,4 @@
-import solutions.FindCycleInDirectedGraph;
-import solutions.FindNumberOfIslands;
+
 import solutions.JumpGame;
 
 /**
@@ -8,7 +7,7 @@ import solutions.JumpGame;
 public class Test {
     static public void main(String[] args){
         long startTime = System.nanoTime();
-        FindCycleInDirectedGraph.Test.randomTest();
+        JumpGame.Test.randomTest();
         System.out.println("Total Time: " + (System.nanoTime() - startTime) / 1000000 + "ms");
     }
 }
