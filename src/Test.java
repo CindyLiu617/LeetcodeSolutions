@@ -1,5 +1,4 @@
-
-import solutions.JumpGame;
+import solutions.PathSum;
 
 /**
  * Created by James on 3/24/16.
@@ -7,7 +6,7 @@ import solutions.JumpGame;
 public class Test {
     static public void main(String[] args){
         long startTime = System.nanoTime();
-        JumpGame.Test.randomTest();
+        PathSum.Test.randomTest();
         System.out.println("Total Time: " + (System.nanoTime() - startTime) / 1000000 + "ms");
     }
 }
