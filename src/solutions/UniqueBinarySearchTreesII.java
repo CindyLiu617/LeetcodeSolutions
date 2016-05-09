@@ -1,5 +1,6 @@
 package solutions;
 
+import com.sun.tools.javac.util.Assert;
 import solutions.utils.TreeNode;
 
 import java.util.ArrayList;
@@ -34,5 +35,17 @@ public class UniqueBinarySearchTreesII {
             }
         }
         return result;
+    }
+    static public class Test {
+        static private UniqueBinarySearchTrees _solution = new UniqueBinarySearchTrees();
+
+        static public void test(int A, int ans) {
+            Assert.check(ans == _solution.numTrees(A));
+        }
+
+        static public void randomTest() {
+            test(3, 5);
+            test(1, 1);
+        }
     }
 }

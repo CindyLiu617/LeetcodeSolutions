@@ -1,6 +1,4 @@
-import com.sun.tools.javac.util.Assert;
-
-import java.util.List;
+package solutions;
 
 /**
  * Created by James on 5/5/16.

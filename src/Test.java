@@ -1,4 +1,4 @@
-import solutions.PathSum;
+import solutions.WordLadderII;
 
 /**
  * Created by James on 3/24/16.
@@ -6,7 +6,7 @@ import solutions.PathSum;
 public class Test {
     static public void main(String[] args){
         long startTime = System.nanoTime();
-        PathSum.Test.randomTest();
+        WordLadderII.Test.randomTest();
         System.out.println("Total Time: " + (System.nanoTime() - startTime) / 1000000 + "ms");
     }
 }
