@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class Combinations {
         static private Combinations _solution = new Combinations();
 
         static public void test(int n, int k, List<List<Integer>> ans) {
-            Assert.check(ans == (_solution.combine(n, k)));
+            assert ans == (_solution.combine(n, k));
         }
 
         static public void randomTest() {

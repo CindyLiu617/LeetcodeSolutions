@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 import solutions.utils.TreeNode;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class PathSumII {
         static private PathSumII _solution = new PathSumII();
 
         static public void test(TreeNode A, int sum, List<List<Integer>> ans) {
-            Assert.check(ans == (_solution.pathSum(A, sum)));
+            assert ans == (_solution.pathSum(A, sum));
         }
 
         static public void randomTest() {

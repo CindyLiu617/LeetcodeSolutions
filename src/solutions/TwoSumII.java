@@ -1,5 +1,5 @@
 package solutions;
-import com.sun.tools.javac.util.Assert;
+
 
 import java.util.Arrays;
 
@@ -28,7 +28,7 @@ public class TwoSumII {
         static private TwoSumII _solution = new TwoSumII();
 
         static public void test(int[] nums,int target, int ans) {
-            Assert.check(ans == (_solution.twoSum2(nums, target)));
+            assert ans == (_solution.twoSum2(nums, target));
         }
         static public void randomTest() {
 //            int[] nums = {2, 7, 11, 15};

@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 import solutions.utils.Point;
 
 /**
@@ -31,7 +31,7 @@ public class FindPeakElement {
         static private FindPeakElement _solution = new FindPeakElement();
 
         static public void test(int[] nums, int ans) {
-            Assert.check(ans == _solution.findPeakElement(nums));
+            assert ans == _solution.findPeakElement(nums);
         }
 
         static public void randomTest() {

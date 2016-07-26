@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 5/30/16.
@@ -51,7 +51,7 @@ public class KthLargestElement {
         static private KthLargestElement _solution = new KthLargestElement();
 
         static public void test(int[] nums,int k, int ans) {
-            Assert.check(ans == (_solution.kthLargestElement(k, nums)));
+            assert ans == (_solution.kthLargestElement(k, nums));
         }
         static public void randomTest() {
             int[] nums = {9,3,2,4,8};

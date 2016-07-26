@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 3/26/16.
@@ -43,7 +43,7 @@ public class JumpGame {
         static private JumpGame _solution = new JumpGame();
 
         static public void test(int[] A, boolean ans) {
-            Assert.check(ans == _solution.canJumpGreedy(A));
+            assert ans == _solution.canJumpGreedy(A);
         }
 
         static public void randomTest() {

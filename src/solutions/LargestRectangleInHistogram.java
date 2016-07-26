@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -36,7 +36,7 @@ public class LargestRectangleInHistogram {
         static private LargestRectangleInHistogram _solution = new LargestRectangleInHistogram();
 
         static public void test(int[] s, int ans) {
-            Assert.check(ans == (_solution.largestRectangleArea(s)));
+            assert ans == (_solution.largestRectangleArea(s));
         }
 
         static public void randomTest() {

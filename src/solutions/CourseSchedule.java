@@ -1,5 +1,6 @@
 package solutions;
-import com.sun.tools.javac.util.Assert;
+
+
 import java.util.*;
 
 /**
@@ -48,7 +49,7 @@ public class CourseSchedule {
         static private CourseSchedule _solution = new CourseSchedule();
 
         static public void test(int numCourses, int[][] prerequisites, boolean ans) {
-            Assert.check(ans == _solution.canFinish(numCourses, prerequisites));
+            assert ans == _solution.canFinish(numCourses, prerequisites);
         }
 
         static public void randomTest() {

@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 7/3/16.
@@ -34,7 +34,7 @@ public class SelfCrossing {
         static private SelfCrossing _solution = new SelfCrossing();
 
         static public void test(int[] x, boolean ans) {
-            Assert.check(ans == _solution.isSelfCrossing(x));
+            assert ans == _solution.isSelfCrossing(x);
         }
 
         static public void randomTest() {

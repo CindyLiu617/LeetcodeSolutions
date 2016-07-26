@@ -1,5 +1,5 @@
 package solutions;
-import com.sun.tools.javac.util.Assert;
+
 import java.util.Stack;
 
 /**
@@ -34,7 +34,7 @@ public class LongestValidParentheses {
         static private LongestValidParentheses _solution = new LongestValidParentheses();
 
         static public void test(String s, int ans) {
-            Assert.check(ans == _solution.longestValidParentheses(s));
+            assert ans == _solution.longestValidParentheses(s);
         }
 
         static public void randomTest() {

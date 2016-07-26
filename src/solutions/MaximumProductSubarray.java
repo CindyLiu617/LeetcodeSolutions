@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 7/9/16.
@@ -34,7 +34,7 @@ import com.sun.tools.javac.util.Assert;
 //        static private MaximumProductSubarray _solution = new MaximumProductSubarray();
 //
 //        static public void test(int[] nums, int ans) {
-//            Assert.check(ans == _solution.maxProduct(nums));
+//            assert ans == _solution.maxProduct(nums));
 //        }
 //
 //        static public void randomTest() {
@@ -70,7 +70,7 @@ public class MaximumProductSubarray {
         static private MaximumProductSubarray _solution = new MaximumProductSubarray();
 
         static public void test(int[] nums, int ans) {
-            Assert.check(ans == _solution.maxProduct(nums));
+            assert ans == _solution.maxProduct(nums);
         }
 
         static public void randomTest() {

@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 7/1/16.
@@ -19,7 +19,7 @@ public class NumberOfDigitOne {
         static private NumberOfDigitOne _solution = new NumberOfDigitOne();
 
         static public void test(int n, int ans) {
-            Assert.check(ans == _solution.countDigitOne(n));
+            assert ans == _solution.countDigitOne(n);
         }
 
         static public void randomTest() {

@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 import solutions.utils.Interval;
 import java.util.Arrays;
 /**
@@ -42,7 +42,7 @@ public class MeetingRoomsII {
         static private MeetingRoomsII _solution = new MeetingRoomsII();
 
         static public void test(Interval[] intervals, int ans) {
-            Assert.check(ans == (_solution.minMeetingRooms(intervals)));
+            assert ans == (_solution.minMeetingRooms(intervals));
         }
 
         static public void randomTest() {

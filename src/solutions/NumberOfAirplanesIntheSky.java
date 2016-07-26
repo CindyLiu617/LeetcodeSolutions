@@ -1,5 +1,5 @@
 package solutions;
-import com.sun.tools.javac.util.Assert;
+
 import solutions.utils.Interval;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class NumberOfAirplanesIntheSky {
         static private NumberOfAirplanesIntheSky _solution = new NumberOfAirplanesIntheSky();
 
         static public void test(List<Interval> airplanes, int ans) {
-            Assert.check(ans == (_solution.countOfAirplanes(airplanes)));
+            assert ans == (_solution.countOfAirplanes(airplanes));
         }
 
         static public void randomTest() {

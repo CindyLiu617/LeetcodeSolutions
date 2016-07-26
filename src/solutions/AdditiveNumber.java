@@ -1,5 +1,4 @@
 package solutions;
-import com.sun.tools.javac.util.Assert;
 
 /**
  * Created by James on 7/2/16.
@@ -47,7 +46,7 @@ public class AdditiveNumber {
         static private AdditiveNumber _solution = new AdditiveNumber();
 
         static public void test(String num, boolean ans) {
-            Assert.check(ans == _solution.isAdditiveNumber(num));
+            assert ans == _solution.isAdditiveNumber(num);
         }
 
         static public void randomTest() {

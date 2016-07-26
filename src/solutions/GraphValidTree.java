@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 6/4/16.
@@ -29,7 +29,7 @@ public class GraphValidTree {
         static private GraphValidTree _solution = new GraphValidTree();
 
         static public void test(int n, int[][] edges, boolean ans) {
-            Assert.check(ans == (_solution.validTree(n, edges)));
+            assert ans == (_solution.validTree(n, edges));
         }
 
         static public void randomTest() {

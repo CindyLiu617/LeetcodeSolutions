@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 4/13/16.
@@ -24,7 +24,7 @@ public class ContainerWithMostWater {
         static private ContainerWithMostWater _solution = new ContainerWithMostWater();
 
         static public void test(int[] height, int ans) {
-            Assert.check(ans == (_solution.maxArea(height)));
+            assert ans == (_solution.maxArea(height));
         }
 
         static public void randomTest() {

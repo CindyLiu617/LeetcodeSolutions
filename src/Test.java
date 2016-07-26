@@ -1,4 +1,4 @@
-import solutions.WordLadderII;
+import solutions.SubarraySumClosestToZeroII;
 
 /**
  * Created by James on 3/24/16.
@@ -6,7 +6,7 @@ import solutions.WordLadderII;
 public class Test {
     static public void main(String[] args){
         long startTime = System.nanoTime();
-        WordLadderII.Test.randomTest();
+        SubarraySumClosestToZeroII.Test.randomTest();
         System.out.println("Total Time: " + (System.nanoTime() - startTime) / 1000000 + "ms");
     }
 }

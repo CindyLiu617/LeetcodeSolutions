@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 7/8/16.
@@ -31,7 +31,7 @@ public class DungeonGame {
         static private DungeonGame _solution = new DungeonGame();
 
         static public void test(int[][] dungeon, int ans) {
-            Assert.check(ans == _solution.calculateMinimumHP(dungeon));
+            assert ans == _solution.calculateMinimumHP(dungeon);
         }
 
         static public void randomTest() {

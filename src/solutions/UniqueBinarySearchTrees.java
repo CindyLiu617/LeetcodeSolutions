@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 3/29/16.
@@ -24,7 +24,7 @@ public class UniqueBinarySearchTrees {
         static private UniqueBinarySearchTrees _solution = new UniqueBinarySearchTrees();
 
         static public void test(int A, int ans) {
-            Assert.check(ans == _solution.numTrees(A));
+            assert ans == _solution.numTrees(A);
         }
 
         static public void randomTest() {

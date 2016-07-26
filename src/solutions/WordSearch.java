@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 
 /**
@@ -45,7 +45,7 @@ public class WordSearch {
         static private WordSearch _solution = new WordSearch();
 
         static public void test(String A, char[][] board, boolean ans) {
-            Assert.check(ans == (_solution.exist(board, A)));
+            assert ans == (_solution.exist(board, A));
         }
         static public void randomTest() {
             char[][] board = {{'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}};

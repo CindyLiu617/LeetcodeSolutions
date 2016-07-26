@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 3/24/16.
@@ -41,7 +41,7 @@ public class FindNumberOfIslands {
         static private FindNumberOfIslands _solution = new FindNumberOfIslands();
 
         static public void test(int[][] matrix, int ans) {
-            Assert.check(ans == _solution.numberOfIslands(matrix));
+            assert ans == _solution.numberOfIslands(matrix);
         }
 
         static public void randomTest() {

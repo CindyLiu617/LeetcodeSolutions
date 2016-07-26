@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -50,7 +50,7 @@ public class WordLadder {
         static private WordLadder _solution = new WordLadder();
 
         static public void test(String beginWord, String endWord, Set<String> wordDict, int ans) {
-            Assert.check(ans == _solution.ladderLength(beginWord, endWord, wordDict));
+            assert ans == _solution.ladderLength(beginWord, endWord, wordDict);
         }
 
         static public void randomTest() {

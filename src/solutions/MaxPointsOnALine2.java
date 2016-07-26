@@ -1,5 +1,5 @@
 package solutions;
-import com.sun.tools.javac.util.Assert;
+
 import solutions.utils.Point;
 
 import java.util.Comparator;
@@ -66,7 +66,7 @@ public class MaxPointsOnALine2 {
         static private MaxPointsOnALine2 _solution = new MaxPointsOnALine2();
 
         static public void test(Point[] points, int ans) {
-            Assert.check(ans == _solution.maxPoints(points));
+            assert ans == _solution.maxPoints(points);
         }
 
         static public void randomTest() {

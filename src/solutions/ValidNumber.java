@@ -1,7 +1,7 @@
 package solutions;
 
 import com.sun.tools.javac.jvm.Code;
-import com.sun.tools.javac.util.Assert;
+
 
 /**
  * Created by James on 4/13/16.
@@ -54,7 +54,7 @@ public class ValidNumber {
         static private ValidNumber _solution = new ValidNumber();
 
         static public void test(String s, boolean ans) {
-            Assert.check(ans == (_solution.isNumber(s)));
+            assert ans == (_solution.isNumber(s));
         }
 
         static public void randomTest() {

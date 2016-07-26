@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 import solutions.utils.Vertex;
 
 import java.util.*;
@@ -81,7 +81,7 @@ public class FindCycleInDirectedGraph {
 
     static public class Test {
         static public void test(boolean[][] graph, boolean ans) {
-            Assert.check(ans == FindCycleInDirectedGraph.hasCycle2(graph));
+            assert ans == FindCycleInDirectedGraph.hasCycle2(graph);
         }
 
         static public void randomTest() {

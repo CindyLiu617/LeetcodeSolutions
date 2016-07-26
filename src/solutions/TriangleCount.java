@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 
 import java.util.Arrays;
 
@@ -32,7 +32,7 @@ public class TriangleCount {
         static private TriangleCount _solution = new TriangleCount();
 
         static public void test(int[] k, int ans) {
-            Assert.check(ans == (_solution.triangleCount(k)));
+            assert ans == (_solution.triangleCount(k));
         }
         static public void randomTest() {
             int[] k = {3, 4, 6, 7};

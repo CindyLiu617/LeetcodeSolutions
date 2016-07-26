@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 import solutions.utils.Point;
 
 import java.util.HashMap;
@@ -47,7 +47,7 @@ public class MaxPointsOnALine {
         static private MaxPointsOnALine _solution = new MaxPointsOnALine();
 
         static public void test(Point[] points, int ans) {
-            Assert.check(ans == _solution.maxPoints(points));
+            assert ans == _solution.maxPoints(points);
         }
 
         static public void randomTest() {

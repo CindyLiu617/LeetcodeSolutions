@@ -1,6 +1,6 @@
 package solutions;
 
-import com.sun.tools.javac.util.Assert;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -95,7 +95,7 @@ public class CountOfSmallerNumbersAfterSelf {
 
         static public void test(int[] A, List<Integer> ans) {
             for (int i = 0; i < A.length; ++i) {
-                Assert.check(ans.get(i).equals(_solution.countSmaller(A).get(i)));
+                assert ans.get(i).equals(_solution.countSmaller(A).get(i));
             }
         }
 
