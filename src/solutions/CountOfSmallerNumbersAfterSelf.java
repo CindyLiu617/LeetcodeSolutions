@@ -1,6 +1,8 @@
 package solutions;
 
 
+import solutions.utils.Interval;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +27,7 @@ public class CountOfSmallerNumbersAfterSelf {
     }
 
     private int BSTInsertNode(Node root, int val){
+        //在向BST插入节点时顺便做统计, 当前节点node左侧全部是值小于或者等于当前节点val的节点
         int smallerCount = 0;
         while (root != null){
             if (val <= root.getValue()){
@@ -93,15 +96,16 @@ public class CountOfSmallerNumbersAfterSelf {
     static public class Test {
         static private CountOfSmallerNumbersAfterSelf _solution = new CountOfSmallerNumbersAfterSelf();
 
-        static public void test(int[] A, List<Integer> ans) {
-            for (int i = 0; i < A.length; ++i) {
-                assert ans.get(i).equals(_solution.countSmaller(A).get(i));
-            }
-        }
+//        static public void test(int[] A, List<Integer> ans) {
+//            for (int i = 0; i < A.length; ++i) {
+//                assert ans.get(i).equals(_solution.countSmaller(A).get(i));
+//            }
+//        }
 
         static public void randomTest() {
-//            int[] nums = {5,2,6,1};
+            int[] nums = {5,2,6,1};
 //            test(nums, new ArrayList<Integer>(Arrays.asList(2,1,1,0)));
+            List<Integer> rst = _solution.countSmaller(nums);
 
 //            int[] nums2 = {1};
 //            test(nums2, new ArrayList<Integer>(Collections.singletonList(0)));
@@ -109,8 +113,8 @@ public class CountOfSmallerNumbersAfterSelf {
 //            int[] nums3 = {1, 2, 3, 4};
 //            test(nums3, new ArrayList<Integer>(Arrays.asList(0, 0, 0, 0)));
 
-            int[] nums4 = {4, 3, 2, 1};
-            test(nums4, new ArrayList<Integer>(asList(3, 2, 1, 0)));
+//            int[] nums4 = {4, 3, 2, 1};
+//            test(nums4, new ArrayList<Integer>(asList(3, 2, 1, 0)));
         }
     }
 }
