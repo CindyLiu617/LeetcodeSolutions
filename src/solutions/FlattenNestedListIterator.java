@@ -11,7 +11,7 @@ public class FlattenNestedListIterator implements Iterator<Integer>{
 
     public FlattenNestedListIterator(List<NestedInteger> nestedList) {
         // Initialize your data structure here.
-        Stack<NestedInteger> stack = new Stack<NestedInteger>();
+        stack = new Stack<NestedInteger>();
         for (int i = nestedList.size() - 1; i >= 0; --i){
            stack.push(nestedList.get(i));
         }
@@ -34,7 +34,7 @@ public class FlattenNestedListIterator implements Iterator<Integer>{
     @Override
     public boolean hasNext() {
         // Write your code here
-        while (stack != null && !stack.isEmpty()){
+        while (!stack.isEmpty()){
             if (stack.peek().isInteger()){
                 return true;
             }
