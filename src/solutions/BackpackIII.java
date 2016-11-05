@@ -1,3 +1,4 @@
+package solutions;
 
 /**
  * Created by James on 8/7/16.
