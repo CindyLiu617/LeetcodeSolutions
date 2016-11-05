@@ -1,10 +1,5 @@
 package solutions;
 
-import solutions.utils.Interval;
-
-/**
- * Created by James on 11/5/16.
- */
 public class PaintHouseII2 {
     public int minCostII(int[][] costs) {
         if (costs == null || costs.length == 0) {
@@ -21,9 +16,10 @@ public class PaintHouseII2 {
                 minCost[i][j] = Integer.MAX_VALUE;
                 //previous color
                 for (int m = 0; m < paintNo; ++m) {
-                    if (m != j){
+                    if (m != j) {
                         minCost[i][j] = Math.min(minCost[i][j],
-                                                 minCost[i - 1][m] + costs[i][j]);
+                                                 minCost[i - 1][m] +
+                                                         costs[i][j]);
                     }
                 }
             }
@@ -34,6 +30,7 @@ public class PaintHouseII2 {
         }
         return min;
     }
+
     static public class Test {
         static private PaintHouseII2 _solution = new PaintHouseII2();
 
