@@ -1,7 +1,6 @@
 package solutions;
 
 import solutions.utils.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +25,14 @@ public class LowestCommonAncestor {
         }
     }
 
-    public TreeNode LCAofBT(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null || p == null || q == null)
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    public TreeNode LCAofBT(TreeNode root, TreeNode A, TreeNode B) {
+        if (root == null || A == null || B == null)
             return null;
         List<TreeNode> path1 = new ArrayList<TreeNode>();
         List<TreeNode> path2 = new ArrayList<TreeNode>();
-        BFSgetPath(root, p, path1);
-        BFSgetPath(root, q, path2);
+        _BFSgetPath(root, A, path1);
+        _BFSgetPath(root, B, path2);
 
         int size1 = path1.size();
         int size2 = path2.size();
@@ -47,20 +47,47 @@ public class LowestCommonAncestor {
         return path1.get(k - 1);
     }
 
-    private boolean BFSgetPath(TreeNode root, TreeNode target, List<TreeNode> path){
+    private boolean _BFSgetPath(TreeNode root, TreeNode target, List<TreeNode> path){
         if (root == target){
             path.add(root);
             return true;
         }
         if(root != null){
             path.add(root);
-            if (BFSgetPath(root.left, target, path) || BFSgetPath(root.right, target, path))
+            if (_BFSgetPath(root.left, target, path) || _BFSgetPath(root.right, target, path))
                 return true;
             path.remove(path.size() - 1);
         }
         return false;
     }
 
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    public TreeNode LCAofBT2(TreeNode root, TreeNode A, TreeNode B) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode left = LCAofBT2(root.left, A, B);
+        TreeNode right = LCAofBT2(root.right, A, B);
+        if (root == A) {
+            return A;
+        } else if (root == B) {
+            return B;
+        } else if ((root.left == A && right != null) || (root.right == A &&
+                left != null)) {
+            return root;
+        } else if ((root.left == B && right != null) || (root.right == B &&
+                left != null)){
+            return root;
+        } else if (left != null && right != null) {
+            return root;
+        } else if (left == null && right != null) {
+            return right;
+        } else {
+            return left;
+        }
+    }
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     static public class Test {
         static private LowestCommonAncestor _solution =
                 new LowestCommonAncestor();
@@ -74,7 +101,7 @@ public class LowestCommonAncestor {
             TreeNode n4 = new TreeNode(4);
             n1.right.left = n4;
             n1.right.right = new TreeNode(5);
-            TreeNode rst = _solution.LCAofBT(n1, n2, n4);
+            TreeNode rst = _solution.LCAofBT2(n1, n2, n4);
             System.out.println(rst.value);
         }
     }
