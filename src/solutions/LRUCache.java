@@ -44,6 +44,10 @@ public class LRUCache {
         if (map.containsKey(key)) {
             DoublelyListNode node = map.get(key);
             _renew(node);
+            //if renewed value is tail, don't forget to update tail
+            if (node.next == null) {
+                tail = node;
+            }
             node.value = value;
         } else {
             DoublelyListNode newNode = new DoublelyListNode(key, value);
@@ -93,12 +97,14 @@ public class LRUCache {
     static public class Test {
 
         static public void randomTest() {
-            LRUCache lruCache = new LRUCache(1);
+            LRUCache lruCache = new LRUCache(2);
             lruCache.set(2, 1);
+            lruCache.set(2, 2);
             System.out.println(lruCache.get(2));
-            lruCache.set(3, 2);
+            lruCache.set(1, 1);
+            lruCache.set(4, 1);
             System.out.println(lruCache.get(2));
-            System.out.println(lruCache.get(3));
+
         }
     }
 
