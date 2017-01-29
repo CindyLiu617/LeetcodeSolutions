@@ -1,5 +1,7 @@
 package solutions;
 
+import solutions.utils.ListNode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +11,10 @@ public class CombinationSumII {
      * @param candidates: A list of integers
      * @param target:An integer
      * @return: A list of lists of integers
+     * Given a collection of candidate numbers (C) and a target number (T),
+     * find all unique combinations in C where the candidate numbers sums to T.
+
+    Each number in C may only be used once in the combination.
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> rst = new ArrayList<List<Integer>>();
@@ -44,12 +50,44 @@ public class CombinationSumII {
         }
     }
 
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> rst = new ArrayList<List<Integer>>();
+        if (candidates == null || candidates.length == 0) {
+            return rst;
+        }
+        List<Integer> path = new ArrayList<Integer>();
+        Arrays.sort(candidates);
+        helper(candidates, target, path, rst, 0, 0);
+        return rst;
+    }
+
+    private void helper (int[] nums, int target, List<Integer>
+            path, List<List<Integer>> rst, int cur, int sum) {
+        if (sum > target) {
+            return;
+        }
+        if (sum == target) {
+            rst.add(new ArrayList<Integer>(path));
+            return;
+        }
+        for (int i = cur; i < nums.length; ++i) {
+            if (i > cur && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            path.add(nums[i]);
+            //start from i + 1 since every number can be used once
+            helper(nums, target, path, rst, i + 1, sum + nums[i]);
+            path.remove(path.size() - 1);
+        }
+    }
+
     static public class Test {
         static private CombinationSumII _solution = new CombinationSumII();
 
         static public void randomTest() {
-            int[] nums = {7,1,2,5,1,6,10};
-            List<List<Integer>> rst = _solution.combinationSum(nums, 8);
+            int[] nums = {10, 1, 2, 7, 6, 1, 5};
+            List<List<Integer>> rst = _solution.combinationSum2(nums, 8);
             for (int i = 0; i < rst.size(); ++i) {
                 for (int j = 0; j < rst.get(i).size(); ++j) {
                     System.out.print(rst.get(i).get(j));
