@@ -32,6 +32,26 @@ public class Subsets {
         }
     }
 
+    public ArrayList<ArrayList<Integer>> subsets2 (int[] nums) {
+        ArrayList<ArrayList<Integer>> rst = new
+                ArrayList<ArrayList<Integer>>();
+        if (nums == null || nums.length == 0) {
+            return rst;
+        }
+        ArrayList<Integer> path = new ArrayList<Integer>();
+        rst.add(new ArrayList<Integer>());
+        generator(nums, rst, path, 0);
+        return rst;
+    }
+    private void generator (int[] nums,  ArrayList<ArrayList<Integer>> rst,
+                            ArrayList<Integer> path,  int cur) {
+        for (int i = cur; i < nums.length; ++i) {
+            path.add(nums[i]);
+            rst.add(new ArrayList<Integer>(path));
+            generator(nums, rst, path, i + 1);
+            path.remove(path.size() - 1);
+        }
+    }
     static public class Test {
         static private Subsets _solution = new Subsets();
 
