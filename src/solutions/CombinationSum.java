@@ -9,7 +9,11 @@ public class CombinationSum {
      * @param candidates: A list of integers
      * @param target:An integer
      * @return: A list of lists of integers
+     * Given a set of candidate numbers (C) (without duplicates) and a target
+     * number (T), find all unique combinations in C where the candidate numbers sums to T.
+    The same repeated number may be chosen from C unlimited number of times.
      */
+
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         // write your code here
         List<List<Integer>> rst = new ArrayList<List<Integer>>();
@@ -38,6 +42,8 @@ public class CombinationSum {
                 continue;
             }
             combination.add(candidates[i]);
+            //start from i since every number can be used unlimited number
+            // of times
             helper(rst, combination, candidates, target - candidates[i], i);
             combination.remove(combination.size() - 1);
         }
