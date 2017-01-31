@@ -1,35 +1,47 @@
 package solutions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class SubsetsII {
-    public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] nums) {
-        // write your code here
-        if (nums == null || nums.length == 0)
-            return null;
-        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-        ArrayList<Integer> subset = new ArrayList<Integer>();
+    /*
+Given a collection of integers that might contain duplicates, nums, return all possible subsets.
 
-        Arrays.sort(nums);
-        return helper(nums, result, subset, 0);
+Note: The solution set must not contain duplicate subsets.
+
+For example,
+If nums = [1,2,2], a solution is:
+
+[
+  [2],
+  [1],
+  [1,2,2],
+  [2,2],
+  [1,2],
+  []
+]
+     */
+    public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] nums) {
+        ArrayList<ArrayList<Integer>> rst = new ArrayList<ArrayList<Integer>>();
+        if (nums == null || nums.length == 0) {
+            return rst;
+        }
+        ArrayList<Integer> path = new ArrayList<Integer>();
+        rst.add(new ArrayList<Integer>());
+        generator(nums, rst, path, 0);
+        return rst;
     }
 
-    private ArrayList<ArrayList<Integer>> helper(int[] nums,
-                                             ArrayList<ArrayList<Integer>> result,
-                                             ArrayList<Integer> path, int pos){
-
-        result.add(new ArrayList<Integer>(path));
-        for (int i = pos; i < nums.length; ++i){
-            if (i != pos && nums[i-1] == nums[i]){
+    private void generator (int[] nums, ArrayList<ArrayList<Integer>> rst,
+                            ArrayList<Integer> path, int cur) {
+        for (int i = cur; i < nums.length; ++i) {
+            if (i > cur && nums[i] == nums[i - 1]) {
                 continue;
             }
             path.add(nums[i]);
-
-            helper(nums, result, path, i + 1);
+            rst.add(new ArrayList<Integer>(path));
+            generator(nums, rst, path, i + 1);
             path.remove(path.size() - 1);
         }
-        return result;
     }
 
     static public class Test {
