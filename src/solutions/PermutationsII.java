@@ -18,25 +18,27 @@ public class PermutationsII {
         List<Integer> permutation = new ArrayList<Integer>();
         boolean[] visited = new boolean[nums.length];
         Arrays.sort(nums);
-        helper(nums, rst, permutation, visited);
+        generator(nums, rst, permutation, visited);
         return rst;
     }
 
-    private void helper (int[] nums, List<List<Integer>> rst, List<Integer>
-            permutation, boolean[] visited) {
-        if (permutation.size() == nums.length) {
-            rst.add(new ArrayList<Integer>(permutation));
+    private void generator (int[] nums, List<List<Integer>> rst,
+                            List<Integer> path, boolean[] visited) {
+        if (path.size() == nums.length) {
+            rst.add(new ArrayList<Integer>(path));
+            return;
         }
         for (int i = 0; i < nums.length; ++i) {
-            if (visited[i] || (i != 0 && nums[i] == nums[i - 1] && !visited[i -
-                    1])){
+            if (i > 0 && nums[i] == nums[i - 1] && visited[i - 1]) {
                 continue;
             }
-            permutation.add(nums[i]);
-            visited[i] = true;
-            helper(nums, rst, permutation, visited);
-            permutation.remove(permutation.size() - 1);
-            visited[i] = false;
+            if (!visited[i]){
+                path.add(nums[i]);
+                visited[i] = true;
+                generator(nums, rst, path, visited);
+                path.remove(path.size() - 1);
+                visited[i] = false;
+            }
         }
     }
 }
