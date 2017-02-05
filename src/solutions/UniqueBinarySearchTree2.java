@@ -5,9 +5,6 @@ public class UniqueBinarySearchTree2 {
         if(n < 0) {
             return 0;
         }
-        if (n == 0) {
-            return 1;
-        }
         int[] count = new int[n + 1];
         count[0] = 1;
         count[1] = 1;
@@ -17,7 +14,6 @@ public class UniqueBinarySearchTree2 {
             }
         }
         return count[n];
-
     }
 
     static public class Test {
