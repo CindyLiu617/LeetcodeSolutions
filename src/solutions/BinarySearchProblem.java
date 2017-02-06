@@ -7,33 +7,17 @@ public class BinarySearchProblem {
             return 0;
         }
         int left = 0, right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right) / 2;
-            if (target <= nums[mid]) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
-    }
-
-    public int searchTarget2 (int[] nums, int target) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        int left = 0, right = nums.length - 1;
         while (left <= right) {
             int mid = (left + right) / 2;
             if (target < nums[mid]) {
-                right = mid;
-            } else if (target == nums[mid]) {
-                return mid;
-            } else {
+                right = mid - 1;
+            } else if (target > nums[mid]){
                 left = mid + 1;
+            } else {
+                return mid;
             }
         }
-        return left;
+        return -1;
     }
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -47,13 +31,13 @@ public class BinarySearchProblem {
             int mid = (left + right) / 2;
             if (nums[mid] >= target) {
                 right = mid;
-            } else if (nums[mid] < target) {
+            } else {
                 left = mid + 1;
             }
         }
         //don't forget to check
         if (nums[left] == target) {
-            return target;
+            return left;
         }
         return -1;
     }
@@ -156,8 +140,8 @@ public class BinarySearchProblem {
         static private BinarySearchProblem _solution = new BinarySearchProblem();
 
         static public void randomTest() {
-            int[] nums = {0, 2, 3, 6, 7, 5};
-            int rst = _solution.findCeiling(nums, 3);
+            int[] nums = {0, 2, 2, 2, 3, 6, 7};
+            int rst = _solution.findFirstPos(nums, 2);
             System.out.println(rst);
         }
     }
