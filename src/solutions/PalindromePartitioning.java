@@ -1,25 +1,45 @@
 package solutions;
 
-import solutions.utils.TreeNode;
-import sun.jvm.hotspot.utilities.IntegerEnum;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PalindromePartitioning {
     /**
-     * @param s: A string
-     * @return: A list of lists of string
+     * Given a string s, partition s such that every substring of the partition is a palindrome.
+     Return all possible palindrome partitioning of s.
+     For example, given s = "aab",
+     Return:
+     [
+     ["aa","b"],
+     ["a","a","b"]
+     ]
      */
     public List<List<String>> partition(String s) {
-        // write your code here
         List<List<String>> rst = new ArrayList<List<String>>();
         if (s == null || s.length() == 0) {
             return rst;
         }
-        List<String> palindrome = new ArrayList<String>();
-        helper(rst, palindrome, s, 0);
+        List<String> palindromeSet = new ArrayList<String>();
+        generator(s, rst, palindromeSet, 0);
         return rst;
+    }
+
+    private void generator (String s, List<List<String>> rst, List<String>
+            palindromeSet, int pos) {
+        //!!!pos == s.length()
+        if (pos == s.length()) {
+            rst.add(new ArrayList<String>(palindromeSet));
+            return;
+        }
+        //substring[start, end] exclusive end
+        for (int i = pos + 1; i <= s.length(); ++i) {
+            String tmp = s.substring(pos, i);
+            if (isPalindrome(tmp)) {
+                palindromeSet.add(tmp);
+                generator(s, rst, palindromeSet, i);
+                palindromeSet.remove(palindromeSet.size() - 1);
+            }
+        }
     }
 
     private boolean isPalindrome(String s) {
@@ -28,28 +48,10 @@ public class PalindromePartitioning {
             if (s.charAt(left) != s.charAt(right)) {
                 return false;
             }
-            ++left;
             --right;
+            ++left;
         }
         return true;
-    }
-
-    private void helper (List<List<String>> rst, List<String> palindrome,
-                         String s, int pos) {
-        if (pos == s.length()) {
-            rst.add(new ArrayList<String>(palindrome));
-            return;
-        }
-        //Pay attention! i starts from pos + 1
-        for (int i = pos + 1; i <= s.length(); ++i) {
-            String tmp = s.substring(pos, i);
-            if (isPalindrome(tmp)) {
-                palindrome.add(tmp);
-                helper(rst, palindrome, s, i);
-                palindrome.remove(palindrome.size() - 1);
-            }
-        }
-
     }
 
     static public class Test {
