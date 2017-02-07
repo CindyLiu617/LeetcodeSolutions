@@ -37,6 +37,23 @@ should return the index number 2.
         return A[left] >= A[right] ? left : right;
     }
 
+    public int findPeak2(int[] A) {
+        if (A == null || A.length == 0){
+            return 0;
+        }
+        int left = 0, right = A.length - 1;
+        while (left < right){
+            int mid = (left + right) / 2;
+            if (A[mid] <= A[mid + 1]){
+                left = mid + 1;
+            }
+            else{
+                right = mid;
+            }
+        }
+        return left;
+    }
+
     static public class Test {
         static private FindPeekElement2 _solution = new FindPeekElement2();
 
